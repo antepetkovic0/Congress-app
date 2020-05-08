@@ -4,8 +4,4 @@ Implementation of React Native congress mobile app for Android/iOS.
 
 MAIN FEATURES
 
-Registration/login user.
-Search list of speakers and lectures.
-Review congress calendar.
-User timeline of saved lectures.
-Push notifications. 
+Registration/login user, searchable list of speakers and lectures, review congress calendar, user timeline of saved lectures, push notifications. 
