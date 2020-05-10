@@ -6,13 +6,16 @@ const registerUser = async newUser => {
   };
 
   try {
-    const response = await fetch('http://192.168.0.23:3000/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      'https://conferencesplit.herokuapp.com/users/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userToRegister),
       },
-      body: JSON.stringify(userToRegister),
-    });
+    );
     //server returning us message -> "user" registered...
     const res = await response.json();
     //if we dont return variable .then(res => console.log(res))
@@ -30,13 +33,16 @@ const loginUser = async user => {
   };
 
   try {
-    const response = await fetch('http://192.168.0.23:3000/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      'https://conferencesplit.herokuapp.com/users/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userToLogin),
       },
-      body: JSON.stringify(userToLogin),
-    });
+    );
 
     const res = await response.json();
     return res;
@@ -47,12 +53,15 @@ const loginUser = async user => {
 
 const getUserProfile = async token => {
   try {
-    const response = await fetch('http://192.168.0.23:3000/users/profile', {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      'http://conferencesplit.herokuapp.com/users/profile',
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     //const res = await response.json();
     // if (response.status === 200) {
     //   let user = res;
@@ -67,7 +76,9 @@ const getUserProfile = async token => {
 
 const getSpeakers = async () => {
   try {
-    const response = await fetch('http://192.168.0.23:3000/speakers');
+    const response = await fetch(
+      'https://conferencesplit.herokuapp.com/speakers',
+    );
     const res = await response.json();
     return res;
   } catch (err) {
@@ -77,7 +88,9 @@ const getSpeakers = async () => {
 
 const getLectures = async () => {
   try {
-    const response = await fetch('http://192.168.0.23:3000/lectures');
+    const response = await fetch(
+      'https://conferencesplit.herokuapp.com/lectures',
+    );
     const res = await response.json();
     return res;
   } catch (err) {
@@ -87,7 +100,9 @@ const getLectures = async () => {
 
 const getLecturesByDay = async day => {
   try {
-    const response = await fetch(`http://192.168.0.23:3000/lectures/${day}`);
+    const response = await fetch(
+      `https://conferencesplit.herokuapp.com/lectures/${day}`,
+    );
     const res = await response.json();
     return res;
   } catch (err) {
@@ -98,7 +113,7 @@ const getLecturesByDay = async day => {
 const saveLectureForTimeline = async (mail, lectureId) => {
   try {
     const response = await fetch(
-      `http://192.168.0.23:3000/users/${mail}/${lectureId}`,
+      `https://conferencesplit.herokuapp.com/users/${mail}/${lectureId}`,
     );
     const res = await response.json();
     return res;
@@ -110,7 +125,7 @@ const saveLectureForTimeline = async (mail, lectureId) => {
 const removeLectureFromTimeline = async (mail, lectureId) => {
   try {
     const response = await fetch(
-      `http://192.168.0.23:3000/users/remove/${mail}/${lectureId}`,
+      `https://conferencesplit.herokuapp.com/users/remove/${mail}/${lectureId}`,
     );
     const res = await response.json();
     return res;
@@ -122,7 +137,7 @@ const removeLectureFromTimeline = async (mail, lectureId) => {
 const getLecturesForTimeline = async mail => {
   try {
     const response = await fetch(
-      `http://192.168.0.23:3000/users/timeline/${mail}`,
+      `https://conferencesplit.herokuapp.com/users/timeline/${mail}`,
     );
     const res = await response.json();
     return res;
