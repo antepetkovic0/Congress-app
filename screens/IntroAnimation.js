@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Animated, Easing, Image, Dimensions} from 'react-native';
+import {isLoggedIn} from '../components/AsyncStorage';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -30,7 +31,13 @@ const IntroAnimation = ({navigation}) => {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      navigation.navigate('Authentication', {screen: 'Login'});
+      //TODO IF TOKEN DIDNT EXPIRED GO APP SCREEN
+      const logged = isLoggedIn();
+      if (logged) {
+        navigation.navigate('Application', {screen: 'Home'});
+      } else {
+        navigation.navigate('Authentication', {screen: 'Login'});
+      }
     });
   }, []);
   //if the animation finished running normally, the completion callback will be invoked with {finished: true}

@@ -1,4 +1,17 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import {getUserProfile} from '../components/APICalls';
+
+const isLoggedIn = () => {
+  let flag = false;
+  getToken().then(token => {
+    getUserProfile(token).then(res => {
+      if (res.user) {
+        flag = true;
+      }
+    });
+  });
+  return flag;
+};
 
 const storeToken = async accessToken => {
   try {
@@ -45,4 +58,4 @@ const printStorage = () => {
   });
 };
 
-export {storeToken, getToken, removeToken};
+export {isLoggedIn, storeToken, getToken, removeToken};

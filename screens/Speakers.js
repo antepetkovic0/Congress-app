@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, FlatList, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  TextInput,
+  FlatList,
+  Image,
+  ActivityIndicator,
+  StyleSheet,
+} from 'react-native';
 import {getSpeakers} from '..//components/APICalls';
 import {SpeakerItem} from '../components/ListItems/SpeakerItem';
 
@@ -26,23 +33,29 @@ const Speakers = () => {
   }, []);
 
   return (
-    <View>
-      <View style={styles.barContainer}>
-        <Image
-          source={require('../pictures/searchUser.png')}
-          style={styles.barIcon}
-        />
-        <TextInput
-          onChangeText={txt => filterSearch(txt)}
-          placeholder={'Search for speaker...'}
-          maxLength={30}
-        />
-      </View>
-      <FlatList
-        data={filteredData}
-        renderItem={({item}) => <SpeakerItem speaker={item} />}
-        keyExtractor={item => item.id.toString()}
-      />
+    <View style={{flex: 1}}>
+      {speakers.length !== 0 ? (
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : (
+        <>
+          <View style={styles.barContainer}>
+            <Image
+              source={require('../pictures/searchUser.png')}
+              style={styles.barIcon}
+            />
+            <TextInput
+              onChangeText={txt => filterSearch(txt)}
+              placeholder={'Search for speaker...'}
+              maxLength={30}
+            />
+          </View>
+          <FlatList
+            data={filteredData}
+            renderItem={({item}) => <SpeakerItem speaker={item} />}
+            keyExtractor={item => item.id.toString()}
+          />
+        </>
+      )}
     </View>
   );
 };

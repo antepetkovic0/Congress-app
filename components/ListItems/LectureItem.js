@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {lectureStyles} from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -58,12 +58,17 @@ const Details = ({lecture}) => {
       <Text style={{fontWeight: 'bold'}}>
         Classroom: <Text style={{fontWeight: 'normal'}}>{classroom}</Text>
       </Text>
-      <Text style={{fontWeight: 'bold'}}>
+      {/* <Text style={{fontWeight: 'bold'}}>
         Speaker:{' '}
         <Text style={{fontWeight: 'normal'}}>
           {speakerName} {speakerSurname}
         </Text>
-      </Text>
+      </Text> */}
+      <TouchableOpacity onPress={{}}>
+        <Text>
+          Speaker: {speakerName} {speakerSurname}
+        </Text>
+      </TouchableOpacity>
       <Text style={{fontWeight: 'bold'}}>
         Description: <Text style={{fontWeight: 'normal'}}>{description}</Text>
       </Text>

@@ -108,7 +108,7 @@ function UserStack() {
   );
 }
 
-function TabNavigator() {
+function TabNavigator({navigation}) {
   return (
     <Tab.Navigator
       initialRouteName="Home"
