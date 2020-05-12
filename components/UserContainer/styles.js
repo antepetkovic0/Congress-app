@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
-    alignItems: 'flex-end',
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    //alignItems: 'flex-end',
   },
   title: {
     fontSize: 18,
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: 'rgb(139, 178, 227)',
     padding: 5,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'black',
   },
 });

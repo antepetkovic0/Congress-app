@@ -1,10 +1,11 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, Image, Switch} from 'react-native';
 import {styles} from './styles';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+const UserContainer = ({title, text, showMore}) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-const UserContainer = ({title, text, iconName, showMore}) => {
   return (
     <View
       style={[
@@ -52,6 +53,22 @@ const UserContainer = ({title, text, iconName, showMore}) => {
           onPress={showMore}>
           <Text>Show more</Text>
         </TouchableOpacity>
+        {title === 'Notifications' ? (
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{textAlignVertical: 'center'}}>
+              Mute notifications?
+            </Text>
+            <Switch
+              trackColor={{false: '#767577', true: 'rgba(191, 112, 95, 0.5)'}}
+              thumbColor={isEnabled ? 'rgb(191, 112, 95)' : '#f4f3f4'}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+        ) : (
+          <></>
+        )}
       </View>
     </View>
   );
