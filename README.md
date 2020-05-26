@@ -11,7 +11,7 @@ cd android => ./gradlew bundleRelease/assembleRelease (generating aab/apk)
 APPLICATION SCREENS
 
 1st => landing animation screen
-![Landing Screen](readme_pictures/landingPage.png){:height="50%" width="50%"}
+![Landing Screen](readme_pictures/landingPage.png)
 
 2nd => login and registration screen
 ![Login Screen](readme_pictures/loginPage.png) ![Register Screen](readme_pictures/registerPage.png)
