@@ -35,8 +35,12 @@ const Speakers = () => {
 
   return (
     <View style={{flex: 1}}>
-      {speakers.length !== 0 ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+      {speakers.length === 0 ? (
+        <ActivityIndicator
+          size="large"
+          color="#0000ff"
+          style={{alignSelf: 'center'}}
+        />
       ) : (
         <>
           <View style={styles.barContainer}>
