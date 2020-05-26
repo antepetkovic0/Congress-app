@@ -58,12 +58,6 @@ const Details = ({lecture}) => {
       <Text style={{fontWeight: 'bold'}}>
         Classroom: <Text style={{fontWeight: 'normal'}}>{classroom}</Text>
       </Text>
-      {/* <Text style={{fontWeight: 'bold'}}>
-        Speaker:{' '}
-        <Text style={{fontWeight: 'normal'}}>
-          {speakerName} {speakerSurname}
-        </Text>
-      </Text> */}
       <TouchableOpacity onPress={{}}>
         <Text>
           Speaker: {speakerName} {speakerSurname}

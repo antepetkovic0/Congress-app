@@ -15,6 +15,7 @@ import Home from './screens/Home';
 import Speakers from './screens/Speakers';
 import Lectures from './screens/Lectures';
 //calendar screens
+//todo - make one calendar screen
 import CalendarDay1 from './screens/CalendarDay1';
 import CalendarDay2 from './screens/CalendarDay2';
 import CalendarDay3 from './screens/CalendarDay3';

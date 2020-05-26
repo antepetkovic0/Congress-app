@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, Image, Switch} from 'react-native';
 import {styles} from './styles';
 
 const UserContainer = ({title, text, showMore}) => {
+  //todo notifications
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 

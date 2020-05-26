@@ -11,6 +11,7 @@ import {getSpeakers} from '..//components/APICalls';
 import {SpeakerItem} from '../components/ListItems/SpeakerItem';
 
 const Speakers = () => {
+  //todo - make speaker clickable from lectures
   const [speakers, setSpeakers] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 

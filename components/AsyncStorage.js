@@ -1,16 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import {getUserProfile} from '../components/APICalls';
 
-const isLoggedIn = () => {
-  let flag = false;
-  getToken().then(token => {
-    getUserProfile(token).then(res => {
-      if (res.user) {
-        flag = true;
-      }
-    });
-  });
-  return flag;
+const isLoggedIn = async () => {
+  const token = await getToken();
+  const profile = await getUserProfile(token);
+  return profile;
 };
 
 const storeToken = async accessToken => {

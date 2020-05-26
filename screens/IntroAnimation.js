@@ -30,10 +30,9 @@ const IntroAnimation = ({navigation}) => {
         easing: Easing.linear,
         useNativeDriver: true,
       }),
-    ]).start(() => {
-      //TODO IF TOKEN DIDNT EXPIRED GO APP SCREEN
-      const logged = isLoggedIn();
-      if (logged) {
+    ]).start(async () => {
+      const logged = await isLoggedIn();
+      if (logged.user) {
         navigation.navigate('Application', {screen: 'Home'});
       } else {
         navigation.navigate('Authentication', {screen: 'Login'});

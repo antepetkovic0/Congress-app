@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
-    //alignItems: 'flex-end',
   },
   title: {
     fontSize: 18,
